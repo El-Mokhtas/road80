@@ -452,6 +452,96 @@ body.drawer-open .drawer-backdrop { opacity: 1; }
 .mobile-cta.is-visible { transform: translateY(0); }
 body.drawer-open .mobile-cta { transform: translateY(110%); }
 
+/* =========================================================
+   Sectors («شنو تدور اليوم؟»)
+   ========================================================= */
+.sectors { padding-block: 72px 80px; }
+
+.section-title {
+  margin: 0 0 32px;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.sector-group + .sector-group { margin-top: 36px; }
+
+.sector-group-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.sector-group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.sector-group-title a:hover { color: var(--blue); }
+
+.sector-grid {
+  display: grid;
+  gap: 14px;
+}
+.sector-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.sector-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.sector-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: 20px 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
+}
+.sector-card:hover {
+  border-color: #b9e1f6;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.sector-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--sky);
+  color: var(--brand);
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+}
+.sector-icon svg { width: 26px; height: 26px; }
+.sector-card:hover .sector-icon { background: var(--brand); color: var(--white); }
+
+.sector-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.sector-name { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.5; }
+.sector-hint { font-size: 13px; line-height: 1.7; color: var(--muted); }
+
+.sector-arrow {
+  position: absolute;
+  top: 22px;
+  inset-inline-end: 16px;
+  width: 20px;
+  height: 20px;
+  color: var(--blue);
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.sector-card:hover .sector-arrow,
+.sector-card:focus-visible .sector-arrow { opacity: 1; transform: translateX(0); }
+
 /* ---------- Placeholder page body ---------- */
 .page-placeholder {
   min-height: 100vh;
@@ -466,6 +556,14 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
   .main-nav,
   .btn-business { display: none; }
   .menu-toggle { display: inline-flex; }
+}
+
+@media (max-width: 1180px) {
+  /* 3-up on a 6-col track; the 5-card group ends with two wider cards */
+  .sector-grid--6,
+  .sector-grid--5 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .sector-grid > li { grid-column: span 2; }
+  .sector-grid--5 > li:nth-child(n+4) { grid-column: span 3; }
 }
 
 @media (max-width: 960px) {
@@ -488,6 +586,23 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
   .btn-download { display: none; }
 }
 
+
+@media (max-width: 720px) {
+  .sectors { padding-block: 56px 64px; }
+  .section-title { margin-bottom: 24px; }
+  .sector-grid { gap: 10px; }
+  .sector-grid--6,
+  .sector-grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sector-grid > li,
+  .sector-grid--5 > li:nth-child(n+4) { grid-column: auto; }
+  .sector-grid > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .sector-card { gap: 10px; padding: 16px 14px; }
+  .sector-icon { width: 42px; height: 42px; border-radius: 12px; }
+  .sector-icon svg { width: 23px; height: 23px; }
+  .sector-name { font-size: 15px; }
+  .sector-hint { font-size: 12.5px; }
+  .sector-arrow { display: none; }
+}
 
 @media (max-width: 560px) {
   .hero-actions { flex-direction: column; }
