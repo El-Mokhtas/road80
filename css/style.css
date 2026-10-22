@@ -542,6 +542,119 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 .sector-card:hover .sector-arrow,
 .sector-card:focus-visible .sector-arrow { opacity: 1; transform: translateX(0); }
 
+/* =========================================================
+   Audience sections (searchers / businesses)
+   ========================================================= */
+.audience {
+  padding-block: 80px;
+  background: var(--sky);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.audience-content { min-width: 0; }
+.audience-content .section-title { margin-bottom: 18px; }
+
+.eyebrow {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.audience-text {
+  margin: 0;
+  max-width: 54ch;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 2;
+  color: var(--text);
+}
+
+.audience-note {
+  margin: 18px 0 0;
+  padding-inline-start: 14px;
+  border-inline-start: 3px solid #bfe3f5;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Numbered flow — the order is the real sequence the copy describes */
+.flow {
+  counter-reset: flow;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 28px;
+  list-style: none;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.flow-step {
+  counter-increment: flow;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.flow-step::after {
+  content: counter(flow);
+  margin-inline-start: auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: #9bb4c6;
+  font-variant-numeric: tabular-nums;
+}
+/* connector between steps */
+.flow-step + .flow-step::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  inset-inline-start: 39px;
+  width: 2px;
+  height: 12px;
+  background: #cfe7f4;
+}
+
+.flow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--sky);
+  color: var(--brand);
+}
+.flow-icon svg { width: 24px; height: 24px; }
+
+.flow-label { font-size: 15.5px; font-weight: 600; color: var(--navy); line-height: 1.6; }
+
+.flow-step--final {
+  border-color: transparent;
+  background: var(--blue);
+}
+.flow-step--final .flow-icon { background: rgba(255, 255, 255, .16); color: var(--white); }
+.flow-step--final .flow-label { color: var(--white); }
+.flow-step--final::after { color: rgba(255, 255, 255, .7); }
+
 /* ---------- Placeholder page body ---------- */
 .page-placeholder {
   min-height: 100vh;
@@ -587,8 +700,18 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 }
 
 
+@media (max-width: 900px) {
+  .audience { padding-block: 64px; }
+  .audience-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
 @media (max-width: 720px) {
   .sectors { padding-block: 56px 64px; }
+  .flow { padding: 16px; border-radius: 20px; }
+  .flow-step { min-height: 58px; padding: 8px 12px; gap: 12px; }
+  .flow-step + .flow-step::before { inset-inline-start: 33px; }
+  .flow-icon { width: 42px; height: 42px; }
+  .flow-label { font-size: 15px; }
   .section-title { margin-bottom: 24px; }
   .sector-grid { gap: 10px; }
   .sector-grid--6,
