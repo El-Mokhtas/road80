@@ -94,6 +94,18 @@
     if (e.matches) closeDrawer(false);
   });
 
+  /* ---------- Sticky mobile CTA (shows once the hero buttons scroll away) ---------- */
+  var heroActions = document.getElementById("heroActions");
+  var mobileCta = document.getElementById("mobileCta");
+  if (heroActions && mobileCta && "IntersectionObserver" in window) {
+    var ctaLink = mobileCta.querySelector("a");
+    new IntersectionObserver(function (entries) {
+      var show = !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0;
+      mobileCta.classList.toggle("is-visible", show);
+      ctaLink.tabIndex = show ? 0 : -1;
+    }).observe(heroActions);
+  }
+
   /* ---------- Analytics hooks (blueprint §10) ---------- */
   // Pushes to GTM's dataLayer once analytics is installed; no-op until then.
   document.addEventListener("click", function (e) {

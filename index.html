@@ -37,6 +37,7 @@
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="7.8" r="1.1" fill="currentColor"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4.5 3.5V16H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.2a10 10 0 0 0 5.8 5.8L16 13l4 1.5v3a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5l7 2.6v5.3c0 4.4-2.9 8-7 9.1-4.1-1.1-7-4.7-7-9.1V6.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-camera" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16.8" cy="7.2" r="1.1" fill="currentColor"/></symbol>
   </svg>
 
@@ -147,11 +148,61 @@
     </div>
   </aside>
 
-  <!-- Placeholder until page sections are built -->
-  <main id="main" class="page-placeholder">
-    <div class="container">
-      <p>الهيدر جاهز للمراجعة — باقي أقسام الصفحة قيد التنفيذ.</p>
-    </div>
+  <main id="main">
+    <!-- ===================== Hero (blueprint §04 + §13) ===================== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title" id="heroTitle">
+            تدور عقار أو خدمة بالكويت؟
+            <span class="hero-title-accent">خلّ البداية من شارع 80.</span>
+          </h1>
+
+          <p class="hero-lead">من الشقق والبيوت والأراضي إلى المقاولات والديكور والأثاث والخدمات اللي يحتاجها بيتك، شارع 80 يساعدك تستكشف الإعلانات والجهات المعروضة وتعرف شلون تتواصل معاهم.</p>
+
+          <div class="hero-actions" id="heroActions">
+            <a class="btn btn-primary btn-lg" href="https://play.google.com/store/apps/details?id=com.eightyroad.app"
+               target="_blank" rel="noopener" data-event="click_android">
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+              <span>حمّل التطبيق</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="for-business/" data-event="click_business_signup">عندك شركة؟ تعرّف على التسجيل</a>
+          </div>
+
+          <p class="hero-trust">
+            <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+            <span>منصة كويتية للبحث عن العقارات والخدمات المرتبطة فيها. ظهور الإعلانات والجهات حسب المتاح داخل التطبيق.</span>
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-orb" aria-hidden="true"></div>
+          <img class="hero-phone"
+               src="assets/images/hero-phone.webp"
+               srcset="assets/images/hero-phone-275.webp 275w, assets/images/hero-phone.webp 412w"
+               sizes="(max-width: 768px) 220px, 280px"
+               width="412" height="1028"
+               fetchpriority="high" decoding="async"
+               alt="صفحة تطبيق شارع 80 على متجر Google Play">
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder until the next sections are built -->
+    <section class="page-placeholder">
+      <div class="container">
+        <p>باقي أقسام الصفحة قيد التنفيذ.</p>
+      </div>
+    </section>
   </main>
+
+  <!-- Sticky download CTA on phones (blueprint §13) -->
+  <div class="mobile-cta" id="mobileCta">
+    <a class="btn btn-primary btn-block" href="https://play.google.com/store/apps/details?id=com.eightyroad.app"
+       target="_blank" rel="noopener" data-event="click_android" tabindex="-1">
+      <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+      <span>حمّل التطبيق</span>
+    </a>
+  </div>
 </body>
 </html>
