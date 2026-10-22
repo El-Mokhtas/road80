@@ -655,6 +655,69 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 .flow-step--final .flow-label { color: var(--white); }
 .flow-step--final::after { color: rgba(255, 255, 255, .7); }
 
+/* Business variant: white band, mirrored columns */
+.audience--business { background: var(--white); }
+.audience--business .eyebrow { background: var(--sky); }
+.audience--business .audience-content { order: 2; }
+
+.audience-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+.biz-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--sky);
+  border: 1px solid #d6eef9;
+}
+
+.biz-types {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.biz-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 72px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.biz-type-label { font-size: 15.5px; font-weight: 600; color: var(--navy); line-height: 1.5; }
+
+.biz-link {
+  display: flex;
+  justify-content: center;
+  color: #8fcbeb;
+}
+.biz-link svg { width: 28px; height: 28px; }
+
+.biz-target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  min-height: 72px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+.biz-target .flow-icon { background: rgba(255, 255, 255, .16); color: var(--white); }
+
 /* ---------- Placeholder page body ---------- */
 .page-placeholder {
   min-height: 100vh;
@@ -703,6 +766,7 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 @media (max-width: 900px) {
   .audience { padding-block: 64px; }
   .audience-grid { grid-template-columns: 1fr; gap: 32px; }
+  .audience--business .audience-content { order: 0; }
 }
 
 @media (max-width: 720px) {
@@ -712,6 +776,12 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
   .flow-step + .flow-step::before { inset-inline-start: 33px; }
   .flow-icon { width: 42px; height: 42px; }
   .flow-label { font-size: 15px; }
+  .biz-card { padding: 16px; border-radius: 20px; }
+  .biz-types { gap: 10px; }
+  .biz-type { min-height: 64px; padding: 10px; gap: 10px; }
+  .biz-type .flow-icon { width: 40px; height: 40px; }
+  .biz-type-label { font-size: 14.5px; }
+  .audience-actions .btn { width: 100%; }
   .section-title { margin-bottom: 24px; }
   .sector-grid { gap: 10px; }
   .sector-grid--6,
