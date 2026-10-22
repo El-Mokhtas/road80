@@ -718,11 +718,91 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 }
 .biz-target .flow-icon { background: rgba(255, 255, 255, .16); color: var(--white); }
 
-/* ---------- Placeholder page body ---------- */
-.page-placeholder {
-  min-height: 100vh;
-  padding: 64px 0;
-  color: var(--muted);
+/* =========================================================
+   Closing CTA
+   ========================================================= */
+.closing { padding-block: 24px 96px; }
+
+.closing-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 64px 56px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, var(--navy) 0%, #0f5d8f 55%, var(--blue) 100%);
+  color: var(--white);
+}
+
+/* Road motif from the logo — a curved road with a dashed centre line */
+.closing-road {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.closing-road-edge { fill: none; stroke: rgba(255, 255, 255, .07); stroke-width: 70; }
+.closing-road-line { fill: none; stroke: rgba(255, 255, 255, .22); stroke-width: 3; stroke-dasharray: 18 16; }
+
+.closing-content {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.closing-title {
+  margin: 0;
+  max-width: 22ch;
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 700;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.closing-text {
+  margin: 0;
+  max-width: 56ch;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 2;
+  color: rgba(255, 255, 255, .86);
+}
+.closing-phone {
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, .45);
+  text-underline-offset: 5px;
+  unicode-bidi: isolate;
+}
+.closing-phone:hover { text-decoration-color: var(--white); }
+
+.closing-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+
+.btn-light { background: var(--white); color: var(--navy); box-shadow: 0 6px 18px rgba(4, 30, 50, .25); }
+.btn-light:hover { background: var(--sky); }
+
+.btn-outline-light { border: 1.5px solid rgba(255, 255, 255, .45); color: var(--white); }
+.btn-outline-light:hover { border-color: var(--white); background: rgba(255, 255, 255, .08); }
+
+.closing-logo {
+  position: relative;
+  flex-shrink: 0;
+  width: 168px;
+  height: auto;
+  padding: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 0 0 12px rgba(255, 255, 255, .08), 0 0 0 26px rgba(255, 255, 255, .04);
+}
+
+/* keep the last section clear of the sticky phone CTA */
+@media (max-width: 768px) {
+  .closing { padding-bottom: 104px; }
 }
 
 /* =========================================================
@@ -769,7 +849,15 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
   .audience--business .audience-content { order: 0; }
 }
 
+@media (max-width: 900px) {
+  .closing-card { flex-direction: column-reverse; align-items: flex-start; gap: 28px; padding: 44px 32px; }
+  .closing-logo { width: 104px; padding: 12px; }
+}
+
 @media (max-width: 720px) {
+  .closing-card { padding: 36px 22px; border-radius: 24px; }
+  .closing-actions { flex-direction: column; }
+  .closing-actions .btn { width: 100%; }
   .sectors { padding-block: 56px 64px; }
   .flow { padding: 16px; border-radius: 20px; }
   .flow-step { min-height: 58px; padding: 8px 12px; gap: 12px; }
