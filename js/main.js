@@ -106,6 +106,10 @@
     }).observe(heroActions);
   }
 
+  /* ---------- Footer year ---------- */
+  var year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+
   /* ---------- Analytics hooks (blueprint §10) ---------- */
   // Pushes to GTM's dataLayer once analytics is installed; no-op until then.
   document.addEventListener("click", function (e) {

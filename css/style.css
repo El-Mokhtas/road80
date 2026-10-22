@@ -800,10 +800,71 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
   box-shadow: 0 0 0 12px rgba(255, 255, 255, .08), 0 0 0 26px rgba(255, 255, 255, .04);
 }
 
-/* keep the last section clear of the sticky phone CTA */
+/* keep the page end clear of the sticky phone CTA */
 @media (max-width: 768px) {
-  .closing { padding-bottom: 104px; }
+  .closing { padding-bottom: 64px; }
+  .site-footer { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: #f5fafd;
+  color: var(--text);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  padding-block: 56px 40px;
+}
+
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.footer-about { margin: 0; max-width: 32ch; font-size: 15px; line-height: 1.9; color: var(--muted); }
+
+.footer-title {
+  margin: 6px 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.footer-links,
+.footer-contact { display: flex; flex-direction: column; gap: 4px; }
+
+.footer-links a,
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  font-size: 14.5px;
+  color: var(--muted);
+  transition: color .2s var(--ease);
+}
+.footer-links a:hover,
+.footer-contact a:hover { color: var(--blue); }
+.footer-contact .icon { width: 20px; height: 20px; color: var(--brand); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-block: 20px;
+  /* divider aligned with the content edges, not the container padding */
+  background: linear-gradient(var(--border), var(--border)) top center / calc(100% - 2 * var(--gutter)) 1px no-repeat;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.footer-copy { margin: 0; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.footer-legal a { display: inline-flex; min-height: 32px; align-items: center; }
+.footer-legal a:hover { color: var(--blue); }
 
 /* =========================================================
    Breakpoints (blueprint: 1440 / 768 / 390)
@@ -850,8 +911,16 @@ body.drawer-open .mobile-cta { transform: translateY(110%); }
 }
 
 @media (max-width: 900px) {
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+  .footer-brand { grid-column: 1 / -1; }
   .closing-card { flex-direction: column-reverse; align-items: flex-start; gap: 28px; padding: 44px 32px; }
   .closing-logo { width: 104px; padding: 12px; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { padding-block: 44px 28px; }
+  .footer-col:last-child { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 720px) {
